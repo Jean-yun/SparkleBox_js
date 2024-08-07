@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function App() {
+  
+  console.log(localStorage.getItem('words'));
   //Add Single compliment and List of compliments
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
   const [selectedSector, setSelectedSector] = useState("Family & Friends"); //default setting
   const [displayedSector, setDisplayedSector] = useState("Family & Friends"); //default shown
   
+  //localStorage does not work on developer mode!! 
+  //Implement only once ; Load data from localStorage when the component mounts
+  useEffect(() => {
+    const savedWords = JSON.parse(localStorage.getItem('words')) || [];
+    setWords(savedWords);
+  }, []);
+  
+  //Save data to localStorage whenever words state changes
+  useEffect(() => {
+    localStorage.setItem('words', JSON.stringify(words));
+  }, [words]);
   
   //Handle sector change
   const handleSectorChange = (event) => {
