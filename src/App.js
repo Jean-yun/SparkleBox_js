@@ -6,7 +6,9 @@ function App() {
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
   const [selectedSector, setSelectedSector] = useState("Family & Friends"); //default setting
-
+  const [displayedSector, setDisplayedSector] = useState("Family & Friends"); //default shown
+  
+  
   //Handle sector change
   const handleSectorChange = (event) => {
     setSelectedSector(event.target.value);
@@ -17,7 +19,7 @@ function App() {
     setWord(event.target.value)
   }
   
-  
+
   //When submitted, add the compliment to the selected sector
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,24 +32,25 @@ function App() {
     }
   };
   
-  const submitCompliment = (event) => {
-    setWord(event.target.value)
-    console.log(event.target.value)
-  };
+  //handle sector button clicked
+  const handleSectorButtonClick = (sector) => {
+    setDisplayedSector(sector)
+  }
+  
     
   return (
     <div className="App">
       <h1>Hi</h1>
       
       <div>
-        <button>Family & Friends</button>
-        <button>Lover</button>
-        <button>Personal Growth</button>
-        <button>Fun & Leisure</button>
-        <button>Home Environment</button>
-        <button>Health</button>
-        <button>Finance</button>
-        <button>Career</button>
+        <button onClick={() => handleSectorButtonClick("Family & Friends")}>Family & Friends</button>
+        <button onClick={() => handleSectorButtonClick("Lover")}>Lover</button>
+        <button onClick={() => handleSectorButtonClick("Personal Growth")}>Personal Growth</button>
+        <button onClick={() => handleSectorButtonClick("Fun & Leisure")}>Fun & Leisure</button>
+        <button onClick={() => handleSectorButtonClick("Home Environment")}>Home Environment</button>
+        <button onClick={() => handleSectorButtonClick("Health")}>Health</button>
+        <button onClick={() => handleSectorButtonClick("Finance")}>Finance</button>
+        <button onClick={() => handleSectorButtonClick("Career")}>Career</button>
       </div>
       
       <form onSubmit={handleSubmit}>
@@ -71,9 +74,22 @@ function App() {
                 
         <button type="submit">Submit</button>
       </form>
-    </div>
-    
       
+      {/* Display the compliments for the selected sector*/}
+      <div>
+        <h2>You're doing great with your {displayedSector} </h2>
+        <ul>
+          
+          {/* filter compliments only of selected sector */}
+          {words
+            .filter(word => word.sector === displayedSector)
+            .map((word, index) => (<li key={index}> {word.text} </li>))
+          } 
+        </ul>
+      </div>
+      
+    </div>
+
   );
 }
 
