@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import styles from './App.module.css';
 
 function App() {
   
@@ -52,10 +52,11 @@ function App() {
   
     
   return (
-    <div className="App">
-      <h1>Hi</h1>
+    <div className={styles.app}>
+      <h1 className={styles.title}>Sparkle Box</h1>
+      <h2 className={styles.generalText}>Record your daily compliments ! </h2>
       
-      <div>
+      <div className="btns">
         <button onClick={() => handleSectorButtonClick("Family & Friends")}>Family & Friends</button>
         <button onClick={() => handleSectorButtonClick("Lover")}>Lover</button>
         <button onClick={() => handleSectorButtonClick("Personal Growth")}>Personal Growth</button>
@@ -85,12 +86,12 @@ function App() {
           onChange={handleInputChange}
         />
                 
-        <button type="submit">Submit</button>
+        <button className={styles.submitbtn} type="submit">Submit</button>
       </form>
       
       {/* Display the compliments for the selected sector*/}
       <div>
-        <h2>You're doing great with your {displayedSector} </h2>
+        <h2 className={styles.generalText}>You're doing great with your {displayedSector} </h2>
         <ul>
           
           {/* filter compliments only of selected sector */}
