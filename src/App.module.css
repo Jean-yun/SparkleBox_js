@@ -2,12 +2,15 @@
 
 .app {
 text-align: center;
+padding: 30px;
 }
 
 .title {
 font-family: "Stylish", serif;
 text-align: center;
+font-size: 5rem;
 }
+
 
 .generalText {
 	font-family: "Delius Swash Caps", cursive;
@@ -21,6 +24,8 @@ form {
 display: flex;
 margin: 20px
 }
+
+
 
 
 button {
@@ -107,5 +112,36 @@ border-radius: 10px;
 	}
 }
 
-ul {
-font-family: "Gloria Hallelujah", cursive;}
+
+.cardContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	/* 카드 간의 간격 */
+	justify-content: center;
+	/* 카드 정렬 */
+}
+
+.card {
+	background-color: #fff;
+	margin: 10px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	aspect-ratio: 3/ 2;
+	padding: 1rem;
+	width: 200px;
+	text-align: center;
+	font-size: 1rem;
+	color: #333;
+}
+
+.card:hover {
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+	.card {
+		font-size: 1.1rem;
+	}
+}

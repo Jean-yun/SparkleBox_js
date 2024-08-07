@@ -92,14 +92,13 @@ function App() {
       {/* Display the compliments for the selected sector*/}
       <div>
         <h2 className={styles.generalText}>You're doing great with your {displayedSector} </h2>
-        <ul>
-          
+        <div className={styles.cardContainer}>
           {/* filter compliments only of selected sector */}
           {words
             .filter(word => word.sector === displayedSector)
-            .map((word, index) => (<li key={index}> {word.text} </li>))
+            .map((word, index) => (<div key={index} className={styles.card}> {word.text} </div>))
           } 
-        </ul>
+        </div>
       </div>
       
     </div>
