@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SparkleBox_js/static/css/main.16860971.css",
+    "main.js": "/SparkleBox_js/static/js/main.0c970714.js",
+    "index.html": "/SparkleBox_js/index.html",
+    "main.16860971.css.map": "/SparkleBox_js/static/css/main.16860971.css.map",
+    "main.0c970714.js.map": "/SparkleBox_js/static/js/main.0c970714.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16860971.css",
+    "static/js/main.0c970714.js"
+  ]
+}
